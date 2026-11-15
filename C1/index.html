@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OBF/2026 - App - Aplicação de Provas</title>
+
+<link rel="stylesheet" type="text/css" href="css/01-bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/02-bootstrap-select.min.css">
+<link rel="stylesheet" type="text/css" href="css/03-stylesheet_bs.css">
+
+<style>
+  /* Contraste: branco sobre o verde original (#4c9173) tinha ~3,7:1; #3f8064 atinge ~4,7:1 */
+  #header {
+    background-image: linear-gradient(90deg, #7dd87d 0px, #3f8064 85px, #3f8064 100%);
+  }
+
+  /* Links no meio de texto precisam de indicação além da cor (WCAG 1.4.1) */
+  .panel-body a {
+    text-decoration: underline;
+  }
+
+  /* Links do menu lateral (antes <a> dentro de <button>), mantendo a aparência original */
+  .btn-group-vertical > a.btn.btn-default {
+    color: #337ab7;
+  }
+  .btn-group-vertical > a.btn.btn-default:hover,
+  .btn-group-vertical > a.btn.btn-default:focus {
+    color: #23527c;
+    text-decoration: underline;
+  }
+
+  /* Link "pular para o conteúdo": visível apenas ao receber foco */
+  .skip-link:focus {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    padding: 8px 12px;
+    background-color: #fff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #header-content {
+      animation: none;
+    }
+  }
+</style>
+
+
+<script src="https://app.graxaim.org/vendor/jquery/jquery.js"></script>
+<script src="https://app.graxaim.org/vendor/bs/bootstrap.js"></script>
+<script src="https://app.graxaim.org/vendor/bs_select/bootstrap-select.min.js"></script>
+</head>
+<body>
+
+<a class="sr-only sr-only-focusable skip-link" href="#main-content">Pular para o conteúdo principal</a>
+
+<header id="header">
+  <div id="header-content">
+    <div id="logo">
+      <img height="61"
+           src="https://app.graxaim.org/obf/2026/ga/pub/obf_t.png"
+           alt="Logo da OBF/2026">
+    </div>
+
+    <div id="header-stuff">
+      <div id="site-name">OBF/2026</div>
+      <div id="site-slogan">App - Aplicação de Provas</div>
+    </div>
+  </div>
+</header>
+
+
+<nav class="navbar navbar-inverse" aria-label="Menu principal">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar"
+              aria-controls="myNavbar" aria-expanded="false">
+        <span class="sr-only">Alternar navegação</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+     <ul class="nav navbar-nav">
+         <li><a href="https://app.graxaim.org/obf/2026/home" ><span style="margin-right:4px" class="glyphicon glyphicon-home" aria-hidden="true"></span> início </a></li>
+           <li><a href="https://app.graxaim.org/obf/2026/open_page/informacoes_gerais" > <span style="margin-right:4px" class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Informações </a></li>
+     </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="login_logout">
+           <a href="https://app.graxaim.org/obf/2026/login" ><span style="margin-right:4px" class="glyphicon glyphicon-log-in" aria-hidden="true"></span> login </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="page-header">
+    <h1 class="h3">Bem-vindo(a)</h1>
+
+  </div>
+  
+  <div class="container-fluid">
+  <div class="row">
+     <div class="container">
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  <div class="row">
+
+    <main id="main-content" class="col-sm-9" style="margin-top:10px" tabindex="-1">
+       
+       
+       
+       
+       
+       
+       
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Sites da OBF - 2026</h2>
+            </div>
+       
+            <div class="panel-body">
+       
+              <p>A partir da data da abertura das inscrições até o a publicação
+                dos resultados finais, a OBF/2026 possui dois sites:</p>
+              <ul>
+                <li>O <a href="http://www1.fisica.org.br/olimpiada/2026/">
+                    site oficial da OBF/2026</a>, localizado nos servidores da SBF,
+                  é o endereço permanente da competição.</li>
+                <li>O presente site <strong>OBF/2026/App</strong> estará ativo até pelo menos
+                  a publicação dos resultados finais da competição.</li>
+              </ul>
+            </div>
+          </div>
+       
+       
+       
+         
+       
+       <!-- notícias -->
+       
+       
+       
+       
+       <div class="panel panel-info" id="03_nov_2026_b">
+         <div class="panel-heading">
+           <h2 class="panel-title">
+             Orientações para a Prova da 3ª Fase
+             <span style="float:right">03/nov</span>
+           </h2>
+         </div>
+         <div class="panel-body">
+       
+           <p>No sábado, 07/11, será realizada a 3ª Fase da OBF 2026.
+             A seguir, alguns lembretes e orientações para o dia da prova.</p>
+       
+           <ol>
+             <li><strong>Horários das provas:</strong>
+               <ul>
+                 <li>Prova Experimental: das 8h30 às 11h30 (horário local),
+                   para estudantes do 9º Ano do Ensino Fundamental à
+                   2ª Série do Ensino Médio.</li>
+                 <li>Prova Teórica: das 13h30 às 17h30 (horário local),
+                   para todos os estudantes.</li>
+                 <li>Estudantes que não farão a prova experimental não
+                   precisam comparecer no turno da manhã.</li>
+                 <li>Recomendamos chegar ao CA com pelo menos 30 minutos
+                   de antecedência em relação ao horário de início de cada prova.</li>
+               </ul>
+             </li>
+       
+             <li><strong>Locais de prova:</strong>
+               <ul>
+                 <li>As provas são <strong>presenciais</strong>. Cada estudante
+                   deve realizar a prova no Centro de Aplicação (CA) em que
+                   foi <strong>previamente cadastrado</strong>.</li>
+                 <li>Acesse a área restrita do
+                   <a href="https://app.graxaim.org/obf/2026">site de provas</a>
+                   e clique em <strong>"Local de Prova (CA)"</strong> para
+                   consultar o endereço e demais informações do seu CA.</li>
+               </ul>
+             </li>
+       
+             <li><strong>Documento de identificação:</strong>
+               <ul>
+                 <li>Leve um documento de identificação com foto.</li>
+                 <li>Estudantes inscritos na <strong>modalidade individual</strong>
+                   devem levar também um comprovante do nível escolar em que
+                   estão matriculados (identidade escolar, boletim etc.).</li>
+               </ul>
+             </li>
+       
+             <li><strong>Material permitido na prova:</strong>
+               <ul>
+                 <li>Caneta <strong>esferográfica</strong> azul ou preta,
+                   líquido corretivo, régua, lápis e borracha
+                   (para rascunho).</li>
+                 <li>Calculadora científica simples não programável, cujo
+                   uso é permitido e recomendado
+                   <strong>exclusivamente na prova experimental</strong>.
+                   Leia
+                   <a href="https://app.graxaim.org/obf/2026/open_page/calculadoras_permitidas">aqui<span class="sr-only"> (calculadoras permitidas)</span></a>
+                   mais informações sobre as calculadoras permitidas.</li>
+                 <li>Se desejar, leve alimentos e bebidas em quantidades
+                   moderadas, para consumo próprio, em embalagens fechadas
+                   (água, suco, chocolate, balas, barras de cereal etc.).</li>
+                 <li>Não é permitido o uso de canetas de ponta porosa,
+                   tinteiro ou nanquim. As resoluções finais e respostas
+                   devem ser escritas exclusivamente com caneta
+                   esferográfica azul ou preta.</li>
+               </ul>
+             </li>
+       
+             <li><strong>Esclarecimentos:</strong>
+               <ul>
+                 <li>Cada questão deve ser respondida a tinta no espaço
+                   correspondente do <strong>Caderno de Respostas (CR)</strong>.
+                   Veja um modelo
+                   <a href="https://app.graxaim.org/obf/2026/ga/pub/caderno_respostas_teo_amostra.pdf">clicando
+                     aqui<span class="sr-only"> (modelo do Caderno de Respostas, PDF)</span></a>. Não há CRs sobressalentes para substituição.
+                   Por isso, pode ser útil levar líquido corretivo
+                   ("branquinho").</li>
+                 <li>Você deve preencher seu UID (número de identificação
+                   na OBF) no CR. Para consultá-lo, acesse a área restrita
+                   do site de provas e clique em <strong>"Meu Cadastro"</strong>.
+                   O UID aparece em destaque ao lado do seu e-mail.</li>
+                 <li>No dia da prova, o UID também poderá ser consultado
+                   na lista de presença do CA.</li>
+                 <li>Para mais detalhes sobre o CR,
+                   <a href="https://app.graxaim.org/obf/2026/open_page/instrucoes_3_fase#cr">clique aqui<span class="sr-only"> (instruções sobre o Caderno de Respostas)</span></a>.</li>
+               </ul>
+             </li>
+           </ol>
+       
+         </div>
+       </div>
+       
+       <div class="panel panel-info">
+         <div class="panel-heading">
+           <h2 class="panel-title" id="03_nov_2026_a">
+             Local de Prova da 3ª Fase - Centro de Aplicação (CA)
+             <span style="float:right">03/nov</span>
+           </h2>
+         </div>
+         <div class="panel-body">
+       
+           <p><strong>Sobre o local de prova da 3ª Fase:</strong></p>
+       
+           <ol>
+             <li>O estudante <strong>deve</strong> realizar a prova no
+               Centro de Aplicação (CA) em que foi previamente cadastrado.</li>
+       
+             <li>O CA foi definido pelo Coordenador Estadual da OBF,
+               considerando, sempre que possível, o critério de proximidade
+               da residência do estudante.</li>
+       
+             <li>Na 3ª Fase da OBF, o número de CAs é reduzido. Em geral,
+               cada estado conta com um único CA, localizado na capital.
+               Por isso, assim como em anos anteriores, estudantes do
+               interior podem precisar viajar para realizar a prova.</li>
+       
+             <li>Alguns estados contam com CAs adicionais em cidades do
+               interior que funcionam como polos regionais. Para viabilizar
+               um CA no interior, é necessário, tipicamente, haver mais
+               de 40 estudantes classificados na região de abrangência
+               do polo.</li>
+       
+             <li>Acesse sua área restrita e clique em
+               <strong>"Local de Prova (CA)"</strong> para consultar
+               o endereço do CA em que está cadastrado.
+               <ul>
+                 <li>Em caso de dúvida, entre em contato com o
+                   Coordenador Estadual da OBF de sua unidade
+                   da federação.</li>
+               </ul>
+             </li>
+           </ol>
+       
+           <p><strong>Estudantes em Trânsito</strong></p>
+       
+           <p><strong>Um estudante pode realizar a prova em um CA
+             no qual não está cadastrado?</strong></p>
+       
+           <p><strong>Não há garantia!</strong> Cada CA recebeu material
+             de aplicação de provas destinado aos estudantes classificados
+             para a 3ª Fase e cadastrados naquele CA.</p>
+       
+           <ul>
+             <li>Somente são válidas as respostas registradas no
+               <strong>Caderno de Respostas (CR) oficial da OBF</strong>.
+               Os CRs são impressos nacionalmente e não podem ser
+               reproduzidos nos CAs. Portanto, sem um CR disponível,
+               não é possível aplicar a prova.</li>
+       
+             <li>Entretanto, como em anos anteriores, os CAs estão
+               orientados a permitir a realização da prova por estudantes
+               classificados, mas não cadastrados naquele CA,
+               <strong>desde que haja material de aplicação
+               disponível</strong>.</li>
+       
+             <li>Assim, se você estiver em trânsito, especialmente em
+               outro estado, e precisar realizar a prova em um CA
+               diferente daquele em que está cadastrado, procure um
+               CA próximo que tenha um número elevado de estudantes
+               cadastrados.</li>
+       
+             <li>Historicamente, uma parcela dos estudantes cadastrados
+               não comparece às provas, o que permite estimar uma sobra
+               de material da ordem de 10%. Entretanto, essa estimativa
+               <strong>não representa garantia de disponibilidade</strong>
+               em um determinado CA.</li>
+           </ul>
+       
+         <p><strong>Importante:</strong> O estudante que optar por realizar
+           a prova em um CA no qual não está cadastrado deverá comparecer
+           por sua conta e risco, sem garantia de que haverá material
+           disponível. Não é necessário comunicar antecipadamente essa
+           intenção à Coordenação da OBF. Caso o número de estudantes
+           não cadastrados que desejem realizar a prova seja superior
+           à quantidade de material excedente disponível, a distribuição
+           desse material será feita por sorteio.</p>
+       
+         </div>
+       </div>
+       
+       <div class="panel panel-info">
+         <div class="panel-heading">
+           <h2 class="panel-title" id="07_out_2026">
+             Classificados para a 3ª Fase
+             <span style="float:right">07/out</span>
+           </h2>
+         </div>
+         <div class="panel-body">
+       
+           <p><strong>Coordenadores Locais da OBF (escolas):</strong></p>
+           <ul>
+             <li>
+               Selecione <em>Classificados para a 3ª Fase</em> na seção
+               <strong>Meus Estudantes</strong> para obter a lista de estudantes
+               de sua escola classificados para a 3ª Fase.
+             </li>
+       
+             <li>
+               Nessa lista, ao clicar no UID do estudante, você poderá acessar
+               suas notas e as respectivas observações.
+             </li>
+           </ul>
+       
+           <p><strong>Estudantes:</strong></p>
+           <ul>
+             <li>
+               A linha <em>Status (situação)</em> da seção
+               <strong>Meu Cadastro</strong> informa se você está classificado
+               para a 3ª Fase.
+             </li>
+       
+             <li>
+               Na seção <strong>Meus Desempenhos</strong>, você tem acesso às
+               suas notas e às respectivas observações.
+             </li>
+           </ul>
+       
+           <p><strong>Informes:</strong></p>
+           <ul>
+             <li>
+               Cerca de 3% dos estudantes cometeram irregularidades no
+               procedimento de transcrição das respostas, alterando-as no
+               sentido de aproximá-las das respostas corretas. Nesses casos,
+               a prova foi anulada e foi registrada a seguinte observação:
+               <em>"Nota anulada por irregularidade na transcrição das
+               respostas."</em>
+             </li>
+       
+             <li>
+               Não há revisão de nota na OBF. No entanto, excepcionalmente,
+               podemos verificar casos que satisfaçam simultaneamente as quatro
+               condições abaixo:
+       
+               <ol>
+                 <li>
+                   O estudante ainda não está classificado para a 3ª Fase.
+                 </li>
+       
+                 <li>
+                   Considerando apenas as respostas registradas no Caderno de
+                   Respostas e comparando-as com o gabarito divulgado, a nota
+                   do estudante seria igual ou superior à nota de corte.
+                 </li>
+       
+                 <li>
+                   O Caderno de Respostas foi anexado ao sistema.
+                 </li>
+       
+                 <li>
+                   <strong>
+                     A etapa de transcrição das respostas não foi realizada.
+                   </strong>
+                 </li>
+               </ol>
+       
+       
+             <p>
+               As duas primeiras condições são necessárias para agilizar a análise,
+               priorizando os casos em que a verificação pode efetivamente resultar
+               na classificação do estudante para a 3ª Fase.
+             </p>
+       
+               <p>
+                 Estudantes que satisfaçam <strong>todas as quatro condições</strong>
+                 acima devem entrar em contato até 15/10 pelo endereço
+                 equipeobf@graxaim.org.
+               </p>
+       
+               <p>
+                 No assunto da mensagem, escreva
+                 <em>"Revisão da Transcrição das Respostas"</em>. No corpo da
+                 mensagem, informe o UID e solicite o desbloqueio do sistema
+                 para realizar a transcrição das respostas.
+               </p>
+       
+               <p>
+                 O estudante receberá um link que permanecerá ativo por 24 horas
+                 para realizar essa operação.
+               </p>
+       
+             </li>
+           </ul>
+       
+         </div>
+       </div>
+       
+       <div class="panel panel-default">
+         <div class="panel-heading">
+           <h2 class="panel-title" id="corte_3f">
+             Notas de Corte para a 3ª Fase
+             <span style="float:right">05/out</span>
+           </h2>
+         </div>
+         <div class="panel-body">
+           <p>
+             De acordo com o ano/série de matrícula, as notas de corte para
+             a 3ª Fase são:
+           </p>
+       
+           <ul>
+             <li>6º ano: nota <strong>15,0</strong></li>
+             <li>7º ano: nota <strong>27,0</strong></li>
+             <li>8º ano: nota <strong>19,0</strong></li>
+             <li>9º ano: nota <strong>28,0</strong></li>
+             <li>1ª série: nota <strong>28,5</strong></li>
+             <li>2ª série: nota <strong>24,0</strong></li>
+             <li>3ª série: nota <strong>26,0</strong></li>
+           </ul>
+       
+           <p>
+             Para fins de classificação, será considerada uma tolerância de
+             0,5 ponto abaixo da nota de corte. Estudantes com notas iguais ou
+             superiores a esse limite estão classificados para a 3ª Fase.
+           </p>
+       
+           <p>
+             Estudante, <strong> a partir de 07/out</strong>, acesse a área restrita, clique na opção de menu
+             "Meu Cadastro" e consulte a linha "Status". Ela indica se você
+             está classificado para a 3ª Fase.
+           </p>
+       
+           <p>
+             A tarefa "Pagamento da Taxa da 3ª Fase" permanecerá aberta
+             de 09/out a 05/nov.
+           </p>
+         </div>
+       </div>
+       
+       <div class="panel panel-info" id="05_out_2026_a">
+         <div class="panel-heading">
+           <h2 class="panel-title">
+             Notas da 2ª Fase Recalculadas
+             <span style="float:right">05/out</span>
+           </h2>
+         </div>
+         <div class="panel-body">
+           <p>
+             As notas da 2ª Fase divulgadas em 30/set foram recalculadas devido
+             à falta de normalização dos pesos atribuídos às notas parciais.
+             Esse erro foi corrigido, e as notas disponíveis na área restrita
+             a partir de hoje, 05/out, estão corretas.
+           </p>
+       
+           <p>
+             As notas de corte para a 2ª Fase serão divulgadas ainda hoje e já
+             levarão em conta as notas recalculadas corretamente.
+           </p>
+         </div>
+       </div>
+       
+       <div class="panel panel-info" id="30_set_2026">
+         <div class="panel-heading">
+           <h2 class="panel-title">
+             Notas da 2ª Fase Disponíveis na Área Restrita
+             <span style="float:right">30/set</span>
+           </h2>
+         </div>
+         <div class="panel-body">
+           <ul>
+             <li>
+               As notas da 2ª Fase estão disponíveis na área restrita.
+             </li>
+       
+             <li>
+               O gabarito inicialmente divulgado foi mantido. Foram feitos alguns
+               questionamentos em relação a resultados numéricos envolvendo
+               1/&radic;3. Lembramos que a aproximação obrigatória &radic;3 = 1,7
+               deve ser aplicada após a racionalização:
+               1/&radic;3 = &radic;3/3. Esse procedimento não é apenas uma questão
+               de convenção: ele permite obter uma aproximação mais precisa quando
+               se substitui a raiz por sua aproximação decimal. Assim, usando
+               &radic;3 = 1,7, obtém-se 1/&radic;3 &asymp; 0,567, e não 0,588.
+             </li>
+       
+             <li>
+               As notas de corte serão divulgadas em 02/10 e a classificação,
+               em 05/10.
+             </li>
+       
+             <li>
+               O prazo para pagamento da taxa da 3ª Fase será estendido até
+               05/11.
+             </li>
+           </ul>
+         </div>
+       </div>
+       
+       <p><a href="https://app.graxaim.org/obf/2026/open_page/noticias_anteriores"><strong>Notícias anteriores...</strong></a></p>
+       
+    </main> <!-- final home content -->
+
+    <div class="col-sm-3" style="border-right: 1px solid #EAECEE; ">
+      <div class="text-center" style="margin-bottom:30px;">
+        <img class="img-responsive center-block" 
+             src="https://app.graxaim.org/obf/2026/ga/pub/obf2026m.png"
+             alt="Logotipo da OBF 2026"
+             style="width:60%;">
+      </div>
+        <div style="margin:0 auto;">
+          <center>
+            <nav class="btn-group-vertical" aria-label="Links rápidos">
+              <a class="btn btn-default" href="https://app.graxaim.org/obf/2026/open_page/about_obf">Sobre a OBF</a>
+              <a class="btn btn-default" href="https://app.graxaim.org/obf/2026/register">Inscrições</a>
+              <a class="btn btn-default" href="https://www1.fisica.org.br/olimpiada/2026/index.php/coordenacoes-estaduais">Coordenações Estaduais</a>
+              <a class="btn btn-default" href="https://app.graxaim.org/obf/2026/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> &nbsp; login</a>
+              <a class="btn btn-default" href="https://app.graxaim.org/obf/2026/open_page/informacoes_gerais"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> &nbsp; Informações</a>
+              <a class="btn btn-default" href="https://app.graxaim.org/obf/2026/open_page/oportunidades_obf"> <span class="glyphicon glyphicon-flag" aria-hidden="true"></span> &nbsp; Oportunidades</a>
+              <a class="btn btn-default" href="https://app.graxaim.org/obf/2026/open_page/site_list">Edições Anteriores</a>
+              <a class="btn btn-default" href="https://app.graxaim.org/obf/2026/open_page/provas">Provas da OBF 2026</a>
+              <a class="btn btn-default" href="https://app.graxaim.org/obf/2026/open_page/premiados">Premiados</a>
+            </nav>
+        </center>
+        </div>
+    </div><!-- final side bar -->
+
+  </div>
+</div>
+
+  </div>
+</div>
+
+</div>
+
+<div id="footer" style="margin-top:22px">
+<footer class="container-fluid text-center" style="padding-top:10px">
+
+
+  <div class="footer-group">
+    <div class="footer-label"><sub>realização:</sub></div>
+    <div class="footer-logos">
+      <a class="footer-logo-link" href="https://sbfisica.org.br" target="_blank" rel="noopener">
+        <img class="footer-logo"
+             src="https://app.graxaim.org/pics/sbf_novo.png"
+             alt="Sociedade Brasileira de Física (SBF)">
+        <span class="sr-only">(abre em nova aba)</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-group">
+    <div class="footer-label">
+      <sub>apoio:</sub>
+    </div>
+    <div class="footer-logos">
+      <a class="footer-logo-link" href="https://btgpactual.com" target="_blank" rel="noopener">
+        <img class="footer-logo"
+             src="https://app.graxaim.org/pics/btgpactual.png"
+             alt="BTG Pactual">
+        <span class="sr-only">(abre em nova aba)</span>
+      </a>
+      <a class="footer-logo-link" href="https://graxaim.org" target="_blank" rel="noopener">
+        <img class="footer-logo"
+             src="https://app.graxaim.org/pics/graxaim.png"
+             alt="Graxaim">
+        <span class="sr-only">(abre em nova aba)</span>
+      </a>
+    </div>
+  </div>
+
+</footer>
+</div>
+</body>
+</html>
+
